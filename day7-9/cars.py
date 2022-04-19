@@ -42,7 +42,13 @@ def get_all_matching_models(
     'grep' string which defaults to DEFAULT_SEARCH ('trail').
     Sort the resulting sequence alphabetically
     """
-    pass
+    matching_models_list = []
+    for value in cars.values():
+        for cars in value:
+            if DEFAULT_SEARCH in cars.lower():
+                matching_models_list.append(cars)
+    matching_models_list.sort()
+    return matching_models_list
 
 
 def sort_car_models(cars: CarsType = cars) -> CarsType:
@@ -52,4 +58,4 @@ def sort_car_models(cars: CarsType = cars) -> CarsType:
     """
     pass
 
-print(get_first_model_each_manufacturer())
+print(get_all_matching_models())
